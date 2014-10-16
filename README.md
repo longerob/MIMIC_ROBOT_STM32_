@@ -10,5 +10,6 @@ Następny problem to EEPROM. Nie ma go. PCBowcy proszeni są o uwzględnienie go
 
 TIM2 TIM3 TIM4 TIM5
 
-USART1
+USART1 - PB6, PB7
 
+I2C dla EEPROM PB8 - I2C1_SCL, PB9 - I2C1_SDA
