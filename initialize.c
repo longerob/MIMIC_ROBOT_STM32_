@@ -6,10 +6,12 @@ char dataFrame3;
 char dataFrame4;
 int whoAmI=-1;
 unsigned char adres = 0x01;	//Adres urzadzenia
-volatile unsigned char BUFOR[5]; //Macierz zapisanej ramki
+volatile unsigned char BUFOR[20]; //Macierz zapisanej ramki
 volatile unsigned char i = 0;
 volatile int pozycja_BUFOR = 0;	// zmienna do zapisywania pod kolejne miejsca w bufoze
 volatile int start_analiza_odbioru = 0;	// flaga do rozpoczêcia analizy odebranej ramki danych
+
+
 
 void delay(uint32_t ms){
 		ms *= 3360;
@@ -288,8 +290,8 @@ void USART1_IRQHandler(void){
 i = USART1->DR; // the character from the USART1 data register is saved in t
 
 	if(i == 0x0A){
-		if(pozycja_BUFOR == 4){		//Sprawdzenie czy koniec ramki na dobrej pozycji
-			BUFOR[4] = 0x0A;
+		if(pozycja_BUFOR == 19){		//Sprawdzenie czy koniec ramki na dobrej pozycji
+			BUFOR[19] = 0x0A;
 			start_analiza_odbioru = 1;
 			pozycja_BUFOR = 0;	//Wroc na poczatek bufora
 		}
@@ -322,15 +324,88 @@ i = USART1->DR; // the character from the USART1 data register is saved in t
 			break;
 			case 3:
 			BUFOR[3] = i;	//Dane
-			dataFrame3=i;
+			servo.servo_1=i;
+			pozycja_BUFOR++;
+			break;
+			case 4:
+			BUFOR[4] = i;
+			servo.servo_2=i;
+			pozycja_BUFOR++;
+			break;
+			case 5:
+			BUFOR[5] = i;
+			servo.servo_3=i;
+			pozycja_BUFOR++;
+			break;
+			case 6:
+			BUFOR[6] = i;
+			servo.servo_4=i;
+			pozycja_BUFOR++;
+			break;
+			case 7:
+			BUFOR[7] = i;
+			servo.servo_5=i;
+			pozycja_BUFOR++;
+			break;
+			case 8:
+			BUFOR[8] = i;
+			servo.servo_6=i;
+			pozycja_BUFOR++;
+			break;
+			case 9:
+			BUFOR[9] = i;
+			servo.servo_7=i;
+			pozycja_BUFOR++;
+			break;
+			case 10:
+			BUFOR[10] = i;
+			servo.servo_8=i;
+			pozycja_BUFOR++;
+			break;
+			case 11:
+			BUFOR[11] = i;
+			servo.servo_9=i;
+			pozycja_BUFOR++;
+			break;
+			case 12:
+			BUFOR[12] = i;
+			servo.servo_10=i;
+			pozycja_BUFOR++;
+			break;
+			case 13:
+			BUFOR[13] = i;
+			servo.servo_11=i;
+			pozycja_BUFOR++;
+			break;
+			case 14:
+			BUFOR[14] = i;
+			servo.servo_12=i;
+			pozycja_BUFOR++;
+			break;
+			case 15:
+			BUFOR[15] = i;
+			servo.servo_13=i;
+			pozycja_BUFOR++;
+			break;
+			case 16:
+			BUFOR[16] = i;
+			servo.servo_14=i;
+			pozycja_BUFOR++;
+			break;
+			case 17:
+			BUFOR[17] = i;
+			servo.servo_15=i;
+			pozycja_BUFOR++;
+			break;
+			case 18:
+			BUFOR[18] = i;
+			servo.servo_16=i;
 			pozycja_BUFOR++;
 			break;
 			default:
 			pozycja_BUFOR = 0; //Jezeli blad odbioru
 			break;
-
 		}
-	
 	}
 	}
 }
