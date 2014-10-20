@@ -1,4 +1,4 @@
-$FF$01$AF$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$0A
+$FF$01$AF$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$A0
 
 FF - początek ramki;
 01 - adres urządzenia;
@@ -7,9 +7,9 @@ AF - rozkaz whoAmI
 *
 *
 *
-0A - koniec ramki
+A0 - koniec ramki!!! zmiana w założeniach - 0A to 10, czyli nie może być. Zamiana na A0 -160.
 
 
 To co grupa informatyczna dostaje z uC po poprawnym połączeniu:
 
-connectionArray[20]={0xFF,0x01,0xFF,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0x0A};
+connectionArray[20]={0xFF,0x01,0xFF,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0xA0};
