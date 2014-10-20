@@ -1,0 +1,10 @@
+$FF$01$AF$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$0A
+
+FF - początek ramki;
+01 - adres urządzenia;
+AF - rozkaz whoAmI
+00 - nastawy w procentach
+*
+*
+*
+0A - koniec ramki
