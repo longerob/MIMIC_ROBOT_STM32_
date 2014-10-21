@@ -1,3 +1,4 @@
+Ramka whoAmI
 $FF$01$AF$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$A0
 
 FF - początek ramki;
@@ -13,3 +14,20 @@ A0 - koniec ramki!!! zmiana w założeniach - 0A to 10, czyli nie może być. Za
 To co grupa informatyczna dostaje z uC po poprawnym połączeniu:
 
 connectionArray[20]={0xFF,0x01,0xFF,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0xA0};
+
+Polecenie, które będzie prosiło o wysłanie z uC wszystkich nastaw jest następujące:
+$FF$01$01$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$00$A0
+
+Po wysłaniu powyższej linijki otrzymasz np.:
+
+FF 01 0A 00 22 00 00 00 00 00 00 00 00 00 00 00 00 00 00 A0 
+FF 01 0B 19 22 00 00 00 00 00 00 00 00 00 00 00 00 00 00 A0 
+FF 01 0C 32 22 00 00 00 00 00 00 00 00 00 00 00 00 00 00 A0 
+FF 01 0D 64 22 00 00 00 00 00 00 00 00 00 00 00 00 00 00 A0 
+FF 01 0E 0A 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 A0
+FF 01 0F 0A 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 A0
+FF 01 10 0A 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 00 A0 
+FF 01 11 0A 0A 00 00 00 00 00 11 00 00 00 00 00 00 00 00 A0 
+
+gdzie: 1 kol - kontrola, 2 kol - adres, 3 kol - numer miny (rozkazy takie jak powyżej), 
+kol 4-19 - nastawy serv, kol20 - koniec ramki (musi być A0, nie 0A).
